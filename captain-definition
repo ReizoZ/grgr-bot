@@ -1,7 +1,6 @@
 {
     "schemaVersion": 2,
-    "dockerImageName": "python",
-    "dockerImageTag": "3.12.8-slim",
+    "dockerfilePath": "./Dockerfile",
     "instanceCount": 1,
     "notExposeAsWebApp": true
   }
