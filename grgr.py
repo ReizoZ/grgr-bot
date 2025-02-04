@@ -55,6 +55,7 @@ async def download_reel(ctx, url: str):
         print(f"An error occurred: {str(e)}")
 
 # Bot token - replace with your actual bot token
-BOT_TOKEN = 'MTMyMzczNDMwMTk1ODczMzk2Nw.G6_SmJ.toKq3FXDwrELhL4_34g0dxZEYX3Ys_3KiLTFXg'
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 bot.run(BOT_TOKEN)
