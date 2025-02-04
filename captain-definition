@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 2,
+  "templateId": "python",
+  "instanceCount": 1,
+  "dockerImageName": "python",
+  "dockerImageTag": "3.12.8",
+  "containerHttpPort": 3546346757,
+  "notExposeAsWebApp": true
+}
