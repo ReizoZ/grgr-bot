@@ -5,7 +5,7 @@ FROM python:3.12.8-slim
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-
+COPY . .
 
 # Command to run your bot
 CMD ["python", "grgr.py"]
