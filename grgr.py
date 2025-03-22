@@ -58,7 +58,6 @@ async def download_reel(ctx, url: str):
 async def send_dm(ctx, member: discord.Member):
     for i in range(20):
         message = await ctx.send(member.mention)
-        await asyncio.sleep(3)  
         await message.delete()
         time.sleep(0.1)
     channel = await member.create_dm()
