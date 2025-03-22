@@ -17,7 +17,9 @@ RUN pip install --upgrade pip \
 
 # نسخ ملف المهام المجدولة
 COPY crontab /etc/cron.d/update-libs
-RUN chmod 0644 /etc/cron.d/update-libs && crontab /etc/cron.d/update-libs
+RUN chmod 0644 /etc/cron.d/update-libs \
+    && echo "" >> /etc/cron.d/update-libs \
+    && crontab -u root /etc/cron.d/update-libs
 
 # نسخ بقية ملفات المشروع
 COPY . .
