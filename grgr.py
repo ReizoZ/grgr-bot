@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 import os
 from discord.ui import Item
+import time
 
 import yt_dlp
 
@@ -53,6 +54,15 @@ async def download_reel(ctx, url: str):
         
     except Exception as e:
         print(f"An error occurred: {str(e)}")
+@bot.command(name='gank', description='for summoning a user')
+async def send_dm(ctx, member: discord.Member):
+    for i in range(20):
+        message = await ctx.send(member.mention)
+        await asyncio.sleep(3)  
+        await message.delete()
+        time.sleep(0.1)
+    channel = await member.create_dm()
+    await channel.send(f"{ctx.author.mention} needs you right now")
 
 # Bot token - replace with your actual bot token
 
