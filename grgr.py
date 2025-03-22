@@ -60,10 +60,11 @@ async def send_dm(ctx, member: discord.Member):
     for i in range(20):
         message = await ctx.send(member.mention)
         message_list.append(message.id)
-        time.sleep(0.1)
+        time.sleep(1)
     channel = ctx.channel
     for message_id in message_list:
         msg = await channel.fetch_message(message_id)  
+        time.sleep(1)
         await msg.delete() 
 
     channel = await member.create_dm()
