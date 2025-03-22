@@ -1,0 +1,17 @@
+# استبعاد ملفات بيئة Python الافتراضية
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# استبعاد ملفات Docker غير المهمة
+*.log
+*.tmp
+*.swp
+.env
+
+# استبعاد المكتبات المثبتة محليًا
+node_modules/
+*.db
+grgr-bot/
+grgr-bot/
