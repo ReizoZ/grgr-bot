@@ -56,10 +56,16 @@ async def download_reel(ctx, url: str):
         print(f"An error occurred: {str(e)}")
 @bot.command(name='gank', description='for summoning a user')
 async def send_dm(ctx, member: discord.Member):
+    message_list =[]
     for i in range(20):
         message = await ctx.send(member.mention)
-        await message.delete()
+        message_list.append(message.id)
         time.sleep(0.1)
+    channel = ctx.channel
+    for message_id in message_list:
+        msg = await channel.fetch_message(message_id)  
+        await msg.delete() 
+
     channel = await member.create_dm()
     await channel.send(f"{ctx.author.mention} needs you right now")
 
