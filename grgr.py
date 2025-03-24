@@ -62,7 +62,10 @@ async def send_dm(ctx, member: discord.Member):
         message = await ctx.send(member.mention)
         message_list.append(message)
         time.sleep(0.7)
+    time.sleep(2)
     await ctx.channel.delete_messages(message_list)
+    channel = await member.create_dm()
+    await channel.send(f"{ctx.author.mention} needs you right now")
 
 @bot.hybrid_command(name="clear", description="Clean up conversations")
 async def clear(ctx, amount: int):
@@ -73,8 +76,7 @@ async def clear(ctx, amount: int):
     await ctx.channel.purge(limit=int(amount))
     
 
-    channel = await member.create_dm()
-    await channel.send(f"{ctx.author.mention} needs you right now")
+    
 
 
 # Bot token - replace with your actual bot token
