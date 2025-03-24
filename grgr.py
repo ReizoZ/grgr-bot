@@ -57,6 +57,7 @@ async def download_reel(ctx, url: str):
 @bot.command(name='gank', description='for summoning a user')
 async def send_dm(ctx, member: discord.Member):
     message_list =[]
+    message_list.append(ctx.message.id)
     for i in range(20):
         message = await ctx.send(member.mention)
         message_list.append(message.id)
