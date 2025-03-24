@@ -70,6 +70,20 @@ async def send_dm(ctx, member: discord.Member):
 
     channel = await member.create_dm()
     await channel.send(f"{ctx.author.mention} needs you right now")
+@bot.command()
+async def give_role(ctx, member: discord.Member):
+    role_id = 1320143432555040828  # معرف الرول المطلوب
+    role = ctx.guild.get_role(role_id)  # جلب الرول من السيرفر
+
+    if role is None:
+        await print("❌ Role not found!")
+        return
+
+    if role in member.roles:
+        await print(f"{member.mention} already has this role! ✅")
+    else:
+        await member.add_roles(role)
+        await print(f"✅ {member.mention} has been given the role `{role.name}`!")
 
 # Bot token - replace with your actual bot token
 
