@@ -57,33 +57,18 @@ async def download_reel(ctx, url: str):
 @bot.command(name='gank', description='for summoning a user')
 async def send_dm(ctx, member: discord.Member):
     message_list =[]
-    message_list.append(ctx.message.id)
+    message_list.append(ctx.message)
     for i in range(20):
         message = await ctx.send(member.mention)
-        message_list.append(message.id)
-        time.sleep(1)
-    channel = ctx.channel
-    for message_id in message_list:
-        msg = await channel.fetch_message(message_id)  
-        time.sleep(1)
-        await msg.delete() 
+        message_list.append(message)
+        time.sleep(0.5)
+
+    await ctx.channel.delete_messages(message_list)
+    
 
     channel = await member.create_dm()
     await channel.send(f"{ctx.author.mention} needs you right now")
-@bot.command()
-async def give_role(ctx, member: discord.Member):
-    role_id = 1320143432555040828  # معرف الرول المطلوب
-    role = ctx.guild.get_role(role_id)  # جلب الرول من السيرفر
 
-    if role is None:
-        await print("❌ Role not found!")
-        return
-
-    if role in member.roles:
-        await print(f"{member.mention} already has this role! ✅")
-    else:
-        await member.add_roles(role)
-        await print(f"✅ {member.mention} has been given the role `{role.name}`!")
 
 # Bot token - replace with your actual bot token
 
