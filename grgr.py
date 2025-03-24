@@ -61,9 +61,16 @@ async def send_dm(ctx, member: discord.Member):
     for i in range(20):
         message = await ctx.send(member.mention)
         message_list.append(message)
-        time.sleep(0.5)
-
+        time.sleep(0.7)
     await ctx.channel.delete_messages(message_list)
+
+@bot.hybrid_command(name="clear", description="Clean up conversations")
+async def clear(ctx, amount: int):
+    if amount == 0:
+        await ctx.send("Please enter the amount of message that you want to clear")
+    if amount < 1 or amount > 100:
+        await ctx.send("you can delete between 1 and 100  ")
+    await ctx.channel.purge(limit=int(amount))
     
 
     channel = await member.create_dm()
