@@ -74,6 +74,20 @@ async def clear(ctx, amount: int):
     if amount < 1 or amount > 100:
         await ctx.send("you can delete between 1 and 100  ")
     await ctx.channel.purge(limit=int(amount))
+@bot.command()
+async def give_role(ctx, member: discord.Member):
+    role_id = 1323736266822652038  # معرف الرول المطلوب
+    role = ctx.guild.get_role(role_id)  # جلب الرول من السيرفر
+
+    if role is None:
+        await print("❌ Role not found!")
+        return
+
+    if role in member.roles:
+        await print(f"{member.mention} already has this role! ✅")
+    else:
+        await member.add_roles(role)
+        await print(f"✅ {member.mention} has been given the role `{role.name}`!")
     
 
     
